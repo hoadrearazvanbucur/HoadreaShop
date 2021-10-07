@@ -24,6 +24,7 @@ namespace MagazinOnline.Control_View
 
         public void layoutForm()
         {
+            this.Name = "form";
             this.Size = new Size(1200, 700);
             this.MaximumSize = new Size(1200, 700);
             this.MinimumSize = new Size(1200, 700);
@@ -37,6 +38,14 @@ namespace MagazinOnline.Control_View
             ControlHeader header = new ControlHeader();
             header.Location = new Point(13, 13);
             this.Controls.Add(header);
+
+            ControlOptionBar bar = new ControlOptionBar();
+            bar.Location = new Point(0, 109);
+            this.Controls.Add(bar);
+
+            ControlMain main = new ControlMain();
+            main.Location = new Point(13, 145);
+            this.Controls.Add(main);
         }
 
     }

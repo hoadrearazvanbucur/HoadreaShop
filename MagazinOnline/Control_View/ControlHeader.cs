@@ -54,6 +54,10 @@ namespace MagazinOnline.Control_View
             PictureBox searchPicture = new PictureBox();
             layoutSearchPicture(searchPicture);
             search.Controls.Add(searchPicture);
+
+            PictureBox exitPicture = new PictureBox();
+            layoutExitPicture(exitPicture);
+            this.Controls.Add(exitPicture);
         }
 
         public void layoutLogo(PictureBox logo)
@@ -158,6 +162,23 @@ namespace MagazinOnline.Control_View
         {
 
         }
+
+
+        public void layoutExitPicture(PictureBox exitPicture)
+        {
+            exitPicture.Location = new Point(1152, 0);
+            exitPicture.Size = new Size(20, 20);
+            Image im = Image.FromFile(Application.StartupPath + @"\images\close.png");
+            exitPicture.BackgroundImage = im;
+            exitPicture.BackgroundImageLayout = ImageLayout.Stretch;
+            exitPicture.Cursor = Cursors.Hand;
+            exitPicture.Click += new EventHandler(exit_Click);
+        }
+        public void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
 
     }
 }

@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Control_View\ControlCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Control_View\ControlHeader.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Control_View\ControlHome.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Control_View\ControlMain.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control_View\ControlOptionBar.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Mockup\MockupCard.cs">
       <SubType>Form</SubType>
