@@ -146,6 +146,7 @@ namespace MagazinOnline.Control_View
             Image im = Image.FromFile(Application.StartupPath + @"\images\loupe.png");
             searchPicture.BackgroundImage = im;
             searchPicture.BackgroundImageLayout = ImageLayout.Stretch;
+            searchPicture.Click += new EventHandler(search_Click);
         }
         public void layoutSearchText(TextBox searchText)
         {
@@ -161,6 +162,10 @@ namespace MagazinOnline.Control_View
         public void search_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        public void search_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cautare");
         }
 
 

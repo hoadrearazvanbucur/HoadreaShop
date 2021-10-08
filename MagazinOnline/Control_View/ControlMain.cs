@@ -21,7 +21,7 @@ namespace MagazinOnline.Control_View
 
 
             Label TEST = new Label();
-            TEST.Location = new Point(10, 1500);
+            TEST.Location = new Point(10, 2000);
             this.Controls.Add(TEST);
         }
 
@@ -51,9 +51,18 @@ namespace MagazinOnline.Control_View
         public void layoutProduse()
         {
             List<Product> lista = control.Products;
+            int k1 = 1,k2=0;
             foreach(Product produs in lista)
             {
-
+                ControlCard card = new ControlCard(produs.Name, produs.Image, produs.Price, produs.Stock, (produs as Telefon).NumeTelefon);
+                Panel panel = card;
+                if(k2>900){
+                    k2 = 0;
+                    k1 += 430;
+                }
+                panel.Location = new Point(75+k2, 350+k1);
+                k2 += 267;
+                this.Controls.Add(panel);
             }
         }
 
