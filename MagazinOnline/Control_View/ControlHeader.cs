@@ -129,6 +129,11 @@ namespace MagazinOnline.Control_View
         public void cartPicture_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Cosul meu");
+
+
+
+
+
         }
 
         
@@ -145,6 +150,7 @@ namespace MagazinOnline.Control_View
             searchPicture.Size = new Size(34, 30);
             Image im = Image.FromFile(Application.StartupPath + @"\images\loupe.png");
             searchPicture.BackgroundImage = im;
+            searchPicture.Cursor = Cursors.Hand;
             searchPicture.BackgroundImageLayout = ImageLayout.Stretch;
             searchPicture.Click += new EventHandler(search_Click);
         }

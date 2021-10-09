@@ -19,6 +19,9 @@
     <Compile Update="Mockup\MockupCard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Mockup\MockupCosCumparaturi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Mockup\MockupHome.cs">
       <SubType>Form</SubType>
     </Compile>

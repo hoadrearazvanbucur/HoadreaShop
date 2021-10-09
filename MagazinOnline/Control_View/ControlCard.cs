@@ -13,21 +13,23 @@ namespace MagazinOnline.Control_View
         private double price;
         private int stock;
         private string numeTelefon;
+        private int id;
 
-        public ControlCard(string name, string image, double price, int stock, string numeTelefon)
+        public ControlCard(int idProdus ,string name, string image, double price, int stock, string numeTelefon)
         {
             this.name = name;
             this.image = image;
             this.price = price;
             this.stock = stock;
             this.numeTelefon = numeTelefon;
+            this.id = idProdus;
             layoutPanel();
             layouts();
         }
 
         public void layoutPanel()
         {
-            this.Size = new Size(200, 330);
+            this.Size = new Size(200, 370);
             this.BackColor = SystemColors.ControlLightLight;
             this.BorderStyle = BorderStyle.FixedSingle;
         }
@@ -53,6 +55,10 @@ namespace MagazinOnline.Control_View
             Label stock = new Label();
             layoutStock(stock);
             this.Controls.Add(stock);
+
+            Button adaugaInCos = new Button();
+            layoutAdaugaInCos(adaugaInCos);
+            this.Controls.Add(adaugaInCos);
         }
 
         public void layoutImagine(PictureBox imagine)
@@ -131,6 +137,30 @@ namespace MagazinOnline.Control_View
                 price.Font = new Font("Cambria", 16, FontStyle.Regular | FontStyle.Strikeout | FontStyle.Bold);
             }
             price.Click += new EventHandler(produs_Click);
+        }
+
+        public void layoutAdaugaInCos(Button adaugaInCos)
+        {
+            adaugaInCos.Text = "Adauga in cos";
+            adaugaInCos.Name = "cos," + id;
+            adaugaInCos.Font = new Font("Cambria", 16, FontStyle.Bold);
+            adaugaInCos.BackColor = Color.Transparent;
+            adaugaInCos.Location = new Point(-1, 330);
+            adaugaInCos.Size = new Size(200, 40);
+            adaugaInCos.Cursor = Cursors.Hand;
+            adaugaInCos.Click += new EventHandler(adaugaInCos_Click);
+
+        }
+
+        public void adaugaInCos_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cosul meu");
+
+
+
+
+
+
         }
 
 
