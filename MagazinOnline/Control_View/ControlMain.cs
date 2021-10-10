@@ -4,26 +4,47 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using Magazin_Online_v2;
+using Magazin_Online_v2.Clasa;
 
 namespace MagazinOnline.Control_View
 {
     public class ControlMain : Panel
     {
-        public ControlProducts control;
+        private ControlProducts controlProducts;
+        private ControlOrder controlOrder;
+        private ControlOrderDetail controlOrderDetail;
+        private ControlCustomer controlCustomer;
+        private Customer customer;
+        private Order order;
+
+
         private int timer;
         private PictureBox reclame;
 
 
         public ControlMain()
         {
-            control = new ControlProducts();
             this.timer = 0;
             this.reclame = new PictureBox();
+            this.controlProducts = new ControlProducts();
+            this.controlOrder = new ControlOrder();
+            this.controlOrderDetail = new ControlOrderDetail();
+            this.controlCustomer = new ControlCustomer();
+
+            this.customer = new Customer(1, "", "", "Bucurel");
+            this.order = new Order(controlOrder.nextId(), customer.Id, 0, "bucrels street");
+
+
+            this.controlOrder.adaugare(order);
+
+
+
+
+
             timerCreate();
             layoutPanel();
             layouts();
             layoutProduse();
-
 
 
             Label TEST = new Label();
@@ -54,7 +75,7 @@ namespace MagazinOnline.Control_View
             this.Controls.Add(reclameP);
             reclameP.Controls.Add(reclame);
 
-            layoutReclame();          
+            layoutReclame();
 
             Label oferte = new Label();
             layoutOferte(oferte);
@@ -63,52 +84,44 @@ namespace MagazinOnline.Control_View
 
         public void layoutProduse()
         {
-            List<Product> lista = control.Products;
-            int k1 = 1,k2=0;
-            foreach(Product produs in lista)
+            List<Product> lista = controlProducts.Products;
+            int k1 = 1, k2 = 0;
+            foreach (Product produs in lista)
             {
-                ControlCard card = new ControlCard(produs.Id,produs.Name, produs.Image, produs.Price, produs.Stock, (produs as Telefon).NumeTelefon);
-                Panel panel = card;
-                if(k2>900){
+                ControlCard card = new ControlCard(produs.Id, produs.Name, produs.Image, produs.Price, produs.Stock, (produs as Telefon).NumeTelefon);
+                if (k2 > 900)
+                {
                     k2 = 0;
                     k1 += 450;
                 }
-                panel.Location = new Point(75+k2, 420+k1);
-
+                card.Location = new Point(75 + k2, 420 + k1);
 
                 Button b = null;
-
-                foreach(Control controale in panel.Controls)
-                {
-
+                foreach (Control controale in card.Controls)
                     if (controale is Button)
                     {
-
                         Button cos = controale as Button;
                         if (cos.Name.Contains("cos") == true)
-                        {
                             b = cos;
-                        }
                     }
-                }
-
                 b.Click += addCos_Click;
-
-
-
                 k2 += 267;
-                this.Controls.Add(panel);
+                this.Controls.Add(card);
             }
         }
 
+
         public void addCos_Click(object sender, EventArgs e)
         {
-
             Button button = sender as Button;
-
             int id = int.Parse(button.Name.Split(",")[1]);
-            MessageBox.Show(id.ToString());
+            Product p = controlProducts.produsId(id);
+            controlProducts.updateStock(p, id);
+            OrderDetail orderDetails = new OrderDetail(controlOrderDetail.nextId(), order.Id, p.Id, p.Price, 1);
+            controlOrderDetail.adaugare(orderDetails);
+            controlOrderDetail.save();
         }
+
 
 
         public void layoutReclame()
@@ -139,7 +152,6 @@ namespace MagazinOnline.Control_View
             reclameP.BackColor = SystemColors.ControlLightLight;
             reclameP.BorderStyle = BorderStyle.FixedSingle;
         }
-
 
         public void layoutOferte(Label oferte)
         {

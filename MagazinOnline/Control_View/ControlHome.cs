@@ -12,21 +12,21 @@ namespace MagazinOnline.Control_View
 {
     public class ControlHome : Form
     {
-        private Customer customer;
-        private ControlOrder controlOrder;
-        private ControlOrderDetail controlOrderDetail;
-        private ControlProducts controlProduct;
-        private Order order;
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // ControlHome
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "ControlHome";
+            this.ResumeLayout(false);
+
+        }
 
         public ControlHome()
         {
-            customer = new Customer(1, "", "", "Bucurel");
-            this.controlOrder = new ControlOrder();
-            this.controlOrderDetail = new ControlOrderDetail();
-            this.controlProduct = new ControlProducts();
-            this.order = new Order(controlOrder.nextId(), customer.Id, 0, "bucrels street");
-
-
             layouts();         
         }
 
@@ -61,23 +61,6 @@ namespace MagazinOnline.Control_View
             main.Location = new Point(13, 145);
             this.Controls.Add(main);
         }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // ControlHome
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "ControlHome";
-            this.Load += new System.EventHandler(this.ControlHome_Load);
-            this.ResumeLayout(false);
-
-        }
-
-        private void ControlHome_Load(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

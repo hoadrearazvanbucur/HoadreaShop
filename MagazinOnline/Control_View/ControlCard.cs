@@ -148,21 +148,8 @@ namespace MagazinOnline.Control_View
             adaugaInCos.Location = new Point(-1, 330);
             adaugaInCos.Size = new Size(200, 40);
             adaugaInCos.Cursor = Cursors.Hand;
-            adaugaInCos.Click += new EventHandler(adaugaInCos_Click);
 
         }
-
-        public void adaugaInCos_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Cosul meu");
-
-
-
-
-
-
-        }
-
 
         public void produs_Click(object sender, EventArgs e)
         {

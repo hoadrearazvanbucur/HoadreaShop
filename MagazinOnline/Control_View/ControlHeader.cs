@@ -128,9 +128,7 @@ namespace MagazinOnline.Control_View
         }
         public void cartPicture_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cosul meu");
-
-
+            
 
 
 

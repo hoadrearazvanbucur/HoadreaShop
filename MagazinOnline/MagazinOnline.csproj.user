@@ -4,6 +4,9 @@
     <Compile Update="Control_View\ControlCard.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Control_View\ControlCos.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Control_View\ControlHeader.cs">
       <SubType>Component</SubType>
     </Compile>
