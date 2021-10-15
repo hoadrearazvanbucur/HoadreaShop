@@ -57,7 +57,9 @@ namespace MagazinOnline.Control_View
             bar.Location = new Point(0, 109);
             this.Controls.Add(bar);
 
-            ControlMain main = new ControlMain();
+
+            //ControlMain main = new ControlMain();
+            ControlCos main = new ControlCos();
             main.Location = new Point(13, 145);
             this.Controls.Add(main);
         }
