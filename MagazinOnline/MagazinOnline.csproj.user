@@ -22,6 +22,9 @@
     <Compile Update="Control_View\ControlOptionBar.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Control_View\ControlSumar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Mockup\MockupCard.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -13,8 +13,8 @@ namespace MagazinOnline.Control_View
         private int stock;
         private double price;
         private string numeTelefon;
-        
-        public ControlComanda(string name,string image,double price,string numeTelefon,int stock)
+
+        public ControlComanda(string name, string image, double price, string numeTelefon, int stock)
         {
             this.name = name;
             this.image = image;
@@ -62,6 +62,11 @@ namespace MagazinOnline.Control_View
             layoutStockP(stockP);
             this.Controls.Add(stockP);
 
+            Label stergere = new Label();
+            layoutStergere(stergere);
+            this.Controls.Add(stergere);
+
+
         }
 
         public void layoutStockM(Button stockM)
@@ -72,6 +77,7 @@ namespace MagazinOnline.Control_View
             stockM.Location = new Point(400, 70);
             stockM.Size = new Size(30, 30);
             stockM.Cursor = Cursors.Hand;
+            stockM.BackColor = Color.Brown;
             stockM.Click += new EventHandler(stockM_Click);
         }
 
@@ -96,16 +102,17 @@ namespace MagazinOnline.Control_View
             stockP.Location = new Point(490, 70);
             stockP.Size = new Size(30, 30);
             stockP.Cursor = Cursors.Hand;
+            stockP.BackColor = Color.Brown;
             stockP.Click += new EventHandler(stockP_Click);
 
         }
         public void stockM_Click(object sender, EventArgs e)
         {
-            foreach(Control c in this.Controls)
+            foreach (Control c in this.Controls)
             {
-                if(c is Label && (c as Label).Name =="stock")
+                if (c is Label && (c as Label).Name == "stock")
                 {
-                    int nr=int.Parse((c as Label).Text);
+                    int nr = int.Parse((c as Label).Text);
                     nr--;
                     if (nr <= 0)
                         (c as Label).Text = "1";
@@ -129,7 +136,7 @@ namespace MagazinOnline.Control_View
                     else
                         (c as Label).Text = nr.ToString();
                 }
-            }   
+            }
         }
 
 
@@ -157,11 +164,31 @@ namespace MagazinOnline.Control_View
             descriere.Cursor = Cursors.Hand;
         }
 
+        public void layoutStergere(Label stergere)
+        {
+            stergere.AutoSize = false;
+            stergere.Location = new Point(425, 110);
+            stergere.Size = new Size(150, 30);
+            stergere.Font = new Font("Cambria", 14, FontStyle.Regular);
+            stergere.BackColor = SystemColors.ControlLightLight;
+            stergere.Text = "Stergere";
+            stergere.ForeColor = Color.Red;
+            stergere.TextAlign = ContentAlignment.MiddleLeft;
+            stergere.Cursor = Cursors.Hand;
+            stergere.Click += new EventHandler(stergere_Click);
+        }
+
+        public void stergere_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
 
         public void layoutOldPrice(Label oldPrice)
         {
             oldPrice.AutoSize = false;
-            oldPrice.Location = new Point(205,70);
+            oldPrice.Location = new Point(205, 70);
             oldPrice.Size = new Size(120, 20);
             oldPrice.Font = new Font("Cambria", 14, FontStyle.Regular | FontStyle.Strikeout | FontStyle.Italic);
             oldPrice.BackColor = SystemColors.ControlLightLight;

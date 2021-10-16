@@ -36,11 +36,14 @@ namespace MagazinOnline.Control_View
             int k1 = 40;
             foreach (Product produs in lista)
             {
-                ControlComanda card = new ControlComanda(produs.Name, produs.Image, produs.Price, (produs as Telefon).NumeTelefon,produs.Stock);
+                ControlComanda card = new ControlComanda(produs.Name, produs.Image, produs.Price, (produs as Telefon).NumeTelefon, produs.Stock);
                 card.Location = new Point(75, 50 + k1);
                 k1 += 200;
                 this.Controls.Add(card);
             }
+            ControlSumar sumar = new ControlSumar(4121);
+            sumar.Location = new Point(800, 90);
+            this.Controls.Add(sumar);
         }
 
 
